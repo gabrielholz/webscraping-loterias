@@ -33,11 +33,6 @@ const data = await page.evaluate(() => {
   });
 
 
-  async function saveFirestore(data) {
-    const route = doc(collection(dbFirestore, "jogos"));
-
-    await setDoc(route, data);
-  }
 
 //    console.log(data);
 //   saveFirestore(data);

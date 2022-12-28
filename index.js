@@ -26,8 +26,8 @@ app.post("/",async (req, res) => {
   res.send(JSON.stringify(data));
 });
 
-//Start server
-let port = process.env.PORT || 3009;
-app.listen(port, (req, res) => {
-  console.log("Servidor Rodando ", port);
-});
+// //Start server
+// let port = process.env.PORT || 3009;
+// app.listen(port, (req, res) => {
+//   console.log("Servidor Rodando ", port);
+// });
