@@ -8,10 +8,18 @@ import cors from "cors";
 // const cors = require('cors');
 import { scrapingLastNumbersMegaSena } from "./functions/getMegaSena.js";
 
+
+const cors = require('cors');
+// Seus domínios permitidos devem estar aqui
+const allowedOrigins = ['http://localhost:3000','https://megasena.devholz.com/']; 
+const corsOption = {
+    origin: allowedOrigins,
+};
 const app = express();
-app.use(cors());
+app.use(cors(corsOption));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 //Routes
 app.post("/getmegasena",async (req, res) => {
@@ -26,8 +34,10 @@ app.post("/getmegasena",async (req, res) => {
   res.send(JSON.stringify(data));
 });
 
+
+
 //Start server
-let port = process.env.PORT || 3009;
+let port = process.env.PORT || 3000;
 app.listen(port, (req, res) => {
   console.log("Servidor Rodando ", port);
 });
