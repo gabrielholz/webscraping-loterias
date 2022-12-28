@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Routes
-app.post("/",async (req, res) => {
+app.post("/getmegasena",async (req, res) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
     let data = {}
@@ -26,8 +26,8 @@ app.post("/",async (req, res) => {
   res.send(JSON.stringify(data));
 });
 
-// //Start server
-// let port = process.env.PORT || 3009;
-// app.listen(port, (req, res) => {
-//   console.log("Servidor Rodando ", port);
-// });
+//Start server
+let port = process.env.PORT || 3009;
+app.listen(port, (req, res) => {
+  console.log("Servidor Rodando ", port);
+});
