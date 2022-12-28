@@ -1,8 +1,5 @@
-// const pup = require('puppeteer');
 import * as pup from "puppeteer";
-// const compareFunctions = require("./compare");
-// import { doc, setDoc, collection } from "firebase/firestore";
-// import { dbFirestore } from "../services/firebaseConfig.js";
+
 
 const url = "https://loterias.caixa.gov.br/Paginas/Mega-Sena.aspx";
 
