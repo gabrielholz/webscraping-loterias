@@ -16,20 +16,24 @@ const allowedOrigins = [
   "https://megasena.devholz.com/",
   "http://10.0.0.22:3000",
 ];
-const corsOption = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
+let corsOptions = {
+    origin: function (origin, callback) {
+      // db.loadOrigins is an example call to load
+      // a list of origins from a backing database
+      db.loadOrigins(function (error, origins) {
+        callback(error, origins)
+      })
+    }
+  }
+
 const app = express();
-app.use(cors(corsOption));
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use(headers)
 
 //Routes
-app.post("/resultadomegasena", cors(corsOption), async (req, res, next) => {
+app.post("/resultadomegasena", cors(corsOptions), async (req, res, next) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
   let data = {};
