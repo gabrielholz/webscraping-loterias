@@ -42,6 +42,7 @@ app.use(bodyParser.json());
 app.post("/resultadomegasena", cors(), async (req, res, next) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
+  
   let data = {};
 
   await scrapingLastNumbersMegaSena().then((response) => {
