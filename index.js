@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 // app.use(headers)
 
 //Routes
-app.post("/resultadomegasena", async (req, res, next) => {
+app.post("/resultadomegasena", cors(corsOption), async (req, res, next) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
   let data = {};
