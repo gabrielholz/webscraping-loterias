@@ -11,7 +11,7 @@ import { scrapingLastNumbersMegaSena } from "./functions/getMegaSena.js";
 
 const cors = require('cors');
 // Seus domínios permitidos devem estar aqui
-const allowedOrigins = ['http://localhost:3000','https://megasena.devholz.com/']; 
+const allowedOrigins = ['http://localhost:3000','https://megasena.devholz.com/', "http://10.0.0.22:3000"]; 
 const corsOption = {
     origin: allowedOrigins,
 };
