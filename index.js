@@ -17,17 +17,17 @@ const allowedOrigins = [
   "http://10.0.0.22:3000",
 ];
 let corsOptions = {
-    origin: true,
-    
+    origin: false,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   }
 
 const app = express();
 // app.use(cors(corsOptions));
 app.use((req, res, next) => {
 	//Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
-     res.header("Access-Control-Allow-Origin", "*");
+    //  res.header("Access-Control-Allow-Origin", "*");
 	// //Quais são os métodos que a conexão pode realizar na API
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    // res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
      app.use(cors(corsOptions));
     console.log('Acesso!!')
      next();
