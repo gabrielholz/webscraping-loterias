@@ -16,9 +16,18 @@ const allowedOrigins = [
   "https://megasena.devholz.com/",
   "http://10.0.0.22:3000",
 ];
+let corsOptions = {
+    origin: function (origin, callback) {
+      // db.loadOrigins is an example call to load
+      // a list of origins from a backing database
+      db.loadOrigins(function (error, origins) {
+        callback(error, origins)
+      })
+    }
+  }
 
 const app = express();
-
+// app.use(cors(corsOptions));
 app.use((req, res, next) => {
 	//Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
     res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +43,7 @@ app.use(bodyParser.json());
 // app.use(headers)
 
 //Routes
-app.post("/resultadomegasena", async (req, res, next) => {
+app.post("/resultadomegasena", cors(), async (req, res, next) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
   let data = {};
@@ -48,6 +57,7 @@ app.post("/resultadomegasena", async (req, res, next) => {
 
 app.get("/getteste", async (req, res) => {
   let data = { name: "Gabriel", company: "devholz" };
+
   return res.json(data);
 });
 
