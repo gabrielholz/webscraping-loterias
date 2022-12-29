@@ -17,16 +17,19 @@ const allowedOrigins = [
   "http://10.0.0.22:3000",
 ];
 const corsOption = {
-  origin: allowedOrigins,
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 const app = express();
-app.use(cors());
+app.use(cors(corsOption));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use(headers)
 
 //Routes
-app.post("/getmegasena", async (req, res) => {
+app.post("/resultadomegasena", async (req, res, next) => {
   // console.log(req.body)
   // res.send(JSON.stringify(`Com o valor de ${req.body.price} você consegue comprar várias coisas`));
   let data = {};
@@ -45,7 +48,7 @@ app.get("/getteste", async (req, res) => {
 });
 
 //Start server
-let port = process.env.PORT || 3009;
+let port = process.env.PORT || 8080;
 app.listen(port, (req, res) => {
   console.log("Servidor Rodando ", port);
 });
