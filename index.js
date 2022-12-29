@@ -48,7 +48,6 @@ app.post("/resultadomegasena", async (req, res, next) => {
 
 app.get("/getteste", async (req, res) => {
   let data = { name: "Gabriel", company: "devholz" };
-
   return res.json(data);
 });
 
