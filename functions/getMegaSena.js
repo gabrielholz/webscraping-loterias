@@ -5,7 +5,7 @@ const url = "https://loterias.caixa.gov.br/Paginas/Mega-Sena.aspx";
 
 
 async function scrapingLastNumbersMegaSena() {
-  const browser = await pup.launch({ headless: true }); // inicializar o navegador
+  const browser = await pup.launch({ headless: true, args: ['--no-sandbox'] }); // inicializar o navegador
   const page = await browser.newPage(); // criar uma nova pagina
 
   await page.goto(url);
