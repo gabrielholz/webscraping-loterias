@@ -1,0 +1,14 @@
+{
+    "apps":[
+        {
+            "name": "webscraping-loterias",
+            "script": "./projects/api-webscraping-loterias/webscraping-loterias/index.js",
+            "instances": "max",
+            "exec_mode": "cluster_mode",
+            "env": {
+                "MODE_ENV": "production",
+                "PORT": "8080"
+            }
+        }
+    ]
+}
